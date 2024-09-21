@@ -122,6 +122,7 @@ def parse_mysqldump(file_path, db_name, table_name, start_row, end_row):
     table_data = []
     in_create_table = False
     table_structure = []
+    in_insert_statement = False
 
     # 正则表达式匹配 CREATE DATABASE、CREATE TABLE 和 INSERT INTO 语句
     db_pattern = re.compile(r'CREATE DATABASE /\*!\d+ IF NOT EXISTS\*/ `(\w+)`')
@@ -199,7 +200,6 @@ def parse_mysqldump(file_path, db_name, table_name, start_row, end_row):
             #         if start_row <= len(table_data) + len(values) <= end_row:
             #             table_data.extend(values)
 
-    print("database", databases)
     # 仅返回请求的表数据的指定行
     return table_data[start_row - 1:end_row]
 
