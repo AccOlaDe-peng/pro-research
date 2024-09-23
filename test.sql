@@ -8,6 +8,19 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 );
 
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `roles` VALUES 
+(1, 'admin'),
+(2, 'admin'),
+(3, 'great');        
+
+
 INSERT INTO `users` VALUES 
 (1, 'Alice', 'alice@example.com'),
 (2, 'Bob', 'bob@example.com'),
